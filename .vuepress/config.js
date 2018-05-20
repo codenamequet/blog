@@ -1,5 +1,7 @@
 module.exports = {
+  base: 'blog',
   title: 'Marquet Reid\'s Blog',
+  description: 'my blog site',
 
   themeConfig: {
     nav: [

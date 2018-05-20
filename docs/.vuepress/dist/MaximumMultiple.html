@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Maximum Multiple</title>
+    <meta name="description" content="">
+    
+    <meta name="keywords"><meta content="my SEO keywords">
+    <link rel="preload" href="/assets/css/6.styles.76e89407.css" as="style"><link rel="preload" href="/assets/js/app.732d9a99.js" as="script"><link rel="preload" href="/assets/js/3.33b9d0a3.js" as="script"><link rel="prefetch" href="/assets/js/0.884bc441.js"><link rel="prefetch" href="/assets/js/1.2559482b.js"><link rel="prefetch" href="/assets/js/2.b3938717.js"><link rel="prefetch" href="/assets/js/4.76523bf7.js"><link rel="prefetch" href="/assets/js/5.110c4802.js">
+    <link rel="stylesheet" href="/assets/css/6.styles.76e89407.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><!----></div></header><div class="sidebar-mask"></div><div class="sidebar"><!----><!----></div><div class="page"><div class="content"><h1 id="maximum-multiple-codewars"><a href="#maximum-multiple-codewars" aria-hidden="true" class="header-anchor">#</a> Maximum Multiple <a href="http://www.codewars.com/kata/maximum-multiple/" target="_blank" rel="noopener noreferrer">(Codewars)</a></h1><pre class="language-text"><code>Given a Divisor and a Bound , Find the largest integer N , Such That ,
+
+Conditions :
+N is divisible by divisor
+
+N is less than or equal to bound
+
+N is greater than 0.
+
+Notes
+The parameters (divisor, bound) passed to the function are only positve values .
+</code></pre><h3 id="psudo-code"><a href="#psudo-code" aria-hidden="true" class="header-anchor">#</a> Psudo Code</h3><ul><li>Divisor and bound are the arguments passed into the function</li><li>N must be be divisible by divisor</li><li>N must be less than or equal to bound</li><li>N will always be greater than 0</li></ul><h3 id="actual-code"><a href="#actual-code" aria-hidden="true" class="header-anchor">#</a> Actual Code</h3><p>I wrote an arrow function and passed it the arguments divisor and bound and decided to go with a for loop to solve this problem. I created a variable n that is equal to bound. N is always less than or equal to bound, since N can be equal to bound then starting there seems like the best idea. I then write that as long as N is less than or equal to bound to continue the for loop, and once that condition is ran and through and not met to decrement N by 1.</p><pre class="language-text"><code>  for (let n = bound; n &lt;= bound; n--) {
+    
+  }
+}
+</code></pre><p>Now I'm set up where the next lines of codeneed to break out of the loop once N is the biggest number modules divisor and less than or equal to bound. If/Else seems like the best way to do this.</p><p>const maxMultiple = (divisor, bound) =&gt; {
+for (let n = bound; n &lt;= bound; n--) {
+if (n % divisor === 0) {
+return n
+} else {
+continue
+}
+}
+}</p><p>Here I wrote an if/else statement that checks to see if N is modules divisor with N always starting out equal to bound. If N is modulus divisor then it return N and leaves the loop. If not then it goes on to the else statement which tells it to continue the loop until it finds the largest number modulus divisor, but equal too or less than bound.</p><div class="tip custom-block"><p class="custom-block-title">Continue Statement</p><p>information about the conitnue statement</p></div><h3 id="final-solution"><a href="#final-solution" aria-hidden="true" class="header-anchor">#</a> Final Solution</h3><p>const maxMultiple = (divisor, bound) =&gt; {
+for (let n = bound; n &lt;= bound; n--) {
+if (n % divisor === 0) {
+return n
+} else {
+continue
+}
+}
+}</p></div><!----><!----></div></div></div>
+    <script src="/assets/js/3.33b9d0a3.js" defer></script><script src="/assets/js/app.732d9a99.js" defer></script>
+  </body>
+</html>

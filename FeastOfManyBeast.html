@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Feast Of Many Beast</title>
+    <meta name="description" content="">
+    
+    <meta name="keywords"><meta content="my SEO keywords">
+    <link rel="preload" href="/assets/css/6.styles.76e89407.css" as="style"><link rel="preload" href="/assets/js/app.732d9a99.js" as="script"><link rel="preload" href="/assets/js/4.76523bf7.js" as="script"><link rel="prefetch" href="/assets/js/0.884bc441.js"><link rel="prefetch" href="/assets/js/1.2559482b.js"><link rel="prefetch" href="/assets/js/2.b3938717.js"><link rel="prefetch" href="/assets/js/3.33b9d0a3.js"><link rel="prefetch" href="/assets/js/5.110c4802.js">
+    <link rel="stylesheet" href="/assets/css/6.styles.76e89407.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><!----></div></header><div class="sidebar-mask"></div><div class="sidebar"><!----><!----></div><div class="page"><div class="content"><h1 id="the-feast-of-many-beast-codewars"><a href="#the-feast-of-many-beast-codewars" aria-hidden="true" class="header-anchor">#</a> The Feast Of Many Beast <a href="https://www.codewars.com/kata/5aa736a455f906981800360d" target="_blank" rel="noopener noreferrer">(Codewars)</a></h1><pre class="language-text"><code>All of the animals are having a feast! Each animal is bringing one dish. There is just one rule: the dish must start and end with the same letters as the animal's name. For example, the great blue heron is bringing garlic naan and the chickadee is bringing chocolate cake.
+
+Write a function feast that takes the animal's name and dish as arguments and returns true or false to indicate whether the beast is allowed to bring the dish to the feast.
+
+Assume that beast and dish are always lowercase strings,and that each has at least two letters. beast and dish may contain hyphens and spaces, but these will not appear at the beginning or end of the string. They will not contain numerals.
+</code></pre><h3 id="psudo-code"><a href="#psudo-code" aria-hidden="true" class="header-anchor">#</a> Psudo Code</h3><ul><li>I knew that the beggining and ending character needed to match so <code>.charAt()</code> came to mind</li><li>I knew true or false needed to be returned</li><li>I knew that everything needed to be lowercased and since hyphens, spaces, are included in strings no need to do anything special to add them. Also knew that there are no animals with &quot;numberals&quot; in their name and thus if for some reason a dish did false would be returned.</li></ul><h3 id="actual-writing-code"><a href="#actual-writing-code" aria-hidden="true" class="header-anchor">#</a> Actual Writing Code</h3><p>I started writing my function as an arrow function and figured I could use an if/else statement to solve my problem.</p><pre class="language-text"><code>    if () {
+        return true
+    } else {
+        return false
+    }
+}
+</code></pre><p>So from there I knew that I needed all of the beast who's first and final character matched the first and final character of the dish they were bringing. I also needed to make sure that characters were always lowercase as the instructions would say to expect. I know this matters for 2 reasons.</p><ol><li>If the user for some reason where to put in an uppercase animal and a lowercase dish or vice versa for some reason even if it was the same character it would always return false. The same letter but different case != the same character.</li><li>The instructions asked for it, therfore they may test for it. Gotta add that in so I'm not going crazy trying to figure out why that test isn't passing later.</li></ol><pre class="language-text"><code>    if (beast.charAt(0).toLowerCase() === 
+    dish.charAt(0).toLowerCase()) {
+        return true
+    } else {
+        return false
+    }
+}
+</code></pre><p>So from here I did a few things. I used the <code>.charAt()</code> method on <code>beast</code> &amp; <code>dish</code>. <code>.charAt()</code> goes through a string and looks for what character is at that index of a string (which follows the rules of an array). So .charAt(0) looks for the first character in both the beast and dish variables. We then use <code>.toLowerCase()</code> to turn every character at the first index of that string into a lowercase letter before comparing them.</p><p>So from here I ran a test in my console and called <code>feast(bird, bd)</code> which returned <code>true</code>. I then ran <code>feast(bird, abc)</code> and that returned <code>false</code>.</p><p>So now I have to get my last characters to compare each other. <code>argument.length - 1</code> returns the last character in the string. Lets take the example 'dog' as a string asigned to beast - <code>beast.length == 3</code>, which means the last index is 2. So subtracting 1 from <code>beasts.length == 2</code>, and we get the last index.</p><div class="warning custom-block"><p class="custom-block-title">WARNING</p><p>⚠️ This does not actually work!</p></div><pre class="language-text"><code>    if (beast.charAt(0).toLowerCase() &amp;&amp; beast.charAt(beast.length - 1).toLowerCase() === 
+    dish.charAt(0).toLowerCase() &amp;&amp; dish.charAt(dish.length - 1)) {
+        return true
+    } else {
+        return false
+    }
+}
+</code></pre><p>The issue is that I was comparing the first &amp; last characters beast to each other, and the first &amp; last characters in dish to each other. This would probably rarely return true.</p><h3 id="final-solution"><a href="#final-solution" aria-hidden="true" class="header-anchor">#</a> Final solution</h3><pre class="language-text"><code>    if (beast.charAt(0).toLowerCase() === dish.charAt(0).toLowerCase() &amp;&amp; 
+    beast.charAt(beast.length -1).toLowerCase() === dish.charAt
+    (dish.length-1).toLowerCase()) {
+    return true
+  } else {
+      return false
+  }
+}
+</code></pre><p>This now runs in the console returning true when both the first and last character of <code>beast == dish</code>. I now look over my code and think that this should pass all the test, which it did.</p><h3 id="conclusion"><a href="#conclusion" aria-hidden="true" class="header-anchor">#</a> Conclusion</h3><p>This challenge wasn't too bad at all. It didn't take long for me to think about how to solve it, and the only hiccup was getting the comparisons correct. Overall it was a decent challenge to start my day off and get my brain working.</p><div class="tip custom-block"><p class="custom-block-title">Fun Fact</p><p>Fun fact here</p></div></div><!----><!----></div></div></div>
+    <script src="/assets/js/4.76523bf7.js" defer></script><script src="/assets/js/app.732d9a99.js" defer></script>
+  </body>
+</html>
